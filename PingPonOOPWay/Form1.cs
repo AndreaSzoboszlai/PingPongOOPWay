@@ -19,9 +19,6 @@ namespace PingPonOOPWay
         {
             InitializeComponent();
             logic = new PingPongLogic(350, 650);
-            logic.pictureBoxPaddle1 = PlayerA;
-            logic.pictureBoxPaddle2 = PlayerB;
-            logic.pictureBoxBall = ball;
             logic.SetMovingObjects(PlayerA, PlayerB, ball);
         }
 
@@ -37,8 +34,15 @@ namespace PingPonOOPWay
         }
         private void timerTick(object sender, EventArgs e)
         {
+            p1Score.Text = "Player 1 Score: " + logic.GetScore1();
+            p2Score.Text = "Player 1 Score: " + logic.GetScore2();
             logic.paddleMove();
             logic.CollisionHandler();
+            if (logic.GetScore1() > 25 || logic.GetScore2() > 25)
+            {
+                gameTimer.Stop();
+                MessageBox.Show("Game over");
+            }
         }
     }
 }

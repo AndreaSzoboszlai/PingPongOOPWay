@@ -34,6 +34,8 @@
             this.ball = new System.Windows.Forms.PictureBox();
             this.MiddleLine = new System.Windows.Forms.PictureBox();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.p1Score = new System.Windows.Forms.Label();
+            this.p2Score = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
@@ -82,11 +84,31 @@
             this.gameTimer.Interval = 30;
             this.gameTimer.Tick += new System.EventHandler(this.timerTick);
             // 
+            // p1Score
+            // 
+            this.p1Score.AutoSize = true;
+            this.p1Score.Location = new System.Drawing.Point(93, 13);
+            this.p1Score.Name = "p1Score";
+            this.p1Score.Size = new System.Drawing.Size(105, 17);
+            this.p1Score.TabIndex = 4;
+            this.p1Score.Text = "Player1 Score: ";
+            // 
+            // p2Score
+            // 
+            this.p2Score.AutoSize = true;
+            this.p2Score.Location = new System.Drawing.Point(538, 13);
+            this.p2Score.Name = "p2Score";
+            this.p2Score.Size = new System.Drawing.Size(105, 17);
+            this.p2Score.TabIndex = 5;
+            this.p2Score.Text = "Player2 Score: ";
+            // 
             // PingPong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.p2Score);
+            this.Controls.Add(this.p1Score);
             this.Controls.Add(this.MiddleLine);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.PlayerB);
@@ -100,6 +122,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MiddleLine)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,6 +133,8 @@
         private System.Windows.Forms.PictureBox ball;
         private System.Windows.Forms.PictureBox MiddleLine;
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Label p1Score;
+        private System.Windows.Forms.Label p2Score;
     }
 }
 

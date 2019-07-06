@@ -18,9 +18,6 @@ namespace PingPong
         private bool secondDown;
         private int x = 6;
         private int y = 6;
-        public PictureBox pictureBoxBall { get; set; }
-        public PictureBox pictureBoxPaddle1 { get; set; }
-        public PictureBox pictureBoxPaddle2 { get; set; }
 
 
         public PingPongLogic(int height, int width)
@@ -135,14 +132,24 @@ namespace PingPong
             if (ball.pictureBox.Bounds.IntersectsWith(paddle.pictureBox.Bounds))
             {
                 x = -x;
+                paddle.score += 1;
             }
 
             if (ball.pictureBox.Bounds.IntersectsWith(paddle2.pictureBox.Bounds))
             {
                 x = -x;
+                paddle2.score += 1;
             }
+        }
 
+        public int GetScore1()
+        {
+            return paddle.score;
+        }
 
+        public int GetScore2()
+        {
+            return paddle2.score;
         }
     }
 }
