@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PlayerA = new System.Windows.Forms.PictureBox();
             this.PlayerB = new System.Windows.Forms.PictureBox();
-            this.Ball = new System.Windows.Forms.PictureBox();
+            this.ball = new System.Windows.Forms.PictureBox();
             this.MiddleLine = new System.Windows.Forms.PictureBox();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PlayerA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MiddleLine)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,14 +58,14 @@
             this.PlayerB.TabIndex = 1;
             this.PlayerB.TabStop = false;
             // 
-            // Ball
+            // ball
             // 
-            this.Ball.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Ball.Location = new System.Drawing.Point(139, 241);
-            this.Ball.Name = "Ball";
-            this.Ball.Size = new System.Drawing.Size(22, 23);
-            this.Ball.TabIndex = 2;
-            this.Ball.TabStop = false;
+            this.ball.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ball.Location = new System.Drawing.Point(139, 241);
+            this.ball.Name = "ball";
+            this.ball.Size = new System.Drawing.Size(22, 23);
+            this.ball.TabIndex = 2;
+            this.ball.TabStop = false;
             // 
             // MiddleLine
             // 
@@ -74,20 +76,28 @@
             this.MiddleLine.TabIndex = 3;
             this.MiddleLine.TabStop = false;
             // 
+            // gameTimer
+            // 
+            this.gameTimer.Enabled = true;
+            this.gameTimer.Interval = 30;
+            this.gameTimer.Tick += new System.EventHandler(this.timerTick);
+            // 
             // PingPong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.MiddleLine);
-            this.Controls.Add(this.Ball);
+            this.Controls.Add(this.ball);
             this.Controls.Add(this.PlayerB);
             this.Controls.Add(this.PlayerA);
             this.Name = "PingPong";
             this.Text = "Ping Pong OOP Way";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyIsDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.PlayerA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MiddleLine)).EndInit();
             this.ResumeLayout(false);
 
@@ -97,8 +107,9 @@
 
         private System.Windows.Forms.PictureBox PlayerA;
         private System.Windows.Forms.PictureBox PlayerB;
-        private System.Windows.Forms.PictureBox Ball;
+        private System.Windows.Forms.PictureBox ball;
         private System.Windows.Forms.PictureBox MiddleLine;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
 

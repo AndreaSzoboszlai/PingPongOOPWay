@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PingPong
 {
-    class Ball : Common
+    class Program
     {
-        public Ball(int height, int width) : base(height, width)
+        static void Main(string[] args)
         {
         }
-
     }
 }
