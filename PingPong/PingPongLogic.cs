@@ -16,6 +16,8 @@ namespace PingPong
         private bool firstDown;
         private bool secondUp;
         private bool secondDown;
+        private int x = 6;
+        private int y = 6;
         public PictureBox pictureBoxBall { get; set; }
         public PictureBox pictureBoxPaddle1 { get; set; }
         public PictureBox pictureBoxPaddle2 { get; set; }
@@ -88,25 +90,48 @@ namespace PingPong
 
         public void paddleMove()
         {
-            if (firstUp == true && pictureBoxPaddle1.Top > 0)
+            if (firstUp == true && paddle.pictureBox.Top > 0)
             {
-                pictureBoxPaddle1.Top -= 8;
+                paddle.pictureBox.Top -= 8;
             }
 
-            if (secondUp == true && pictureBoxPaddle2.Top > 0)
+            if (secondUp == true && paddle2.pictureBox.Top > 0)
             {
-                pictureBoxPaddle2.Top -= 8;
+                paddle2.pictureBox.Top -= 8;
             }
 
-            if (firstDown == true && pictureBoxPaddle1.Top < paddle.Height)
+            if (firstDown == true && paddle.pictureBox.Top < paddle.height)
             {
-                pictureBoxPaddle1.Top += 8;
+                paddle.pictureBox.Top += 8;
             }
 
-            if (secondDown == true && pictureBoxPaddle1.Top < paddle.Height)
+            if (secondDown == true && paddle2.pictureBox.Top < paddle.height)
             {
-                pictureBoxPaddle2.Top += 8;
+                paddle2.pictureBox.Top += 8;
             }
+
+        }
+
+        public void CollisionHandler()
+        {
+            ball.Update(x, y);
+            if (ball.pictureBox.Left < 0)
+            {
+                ball.pictureBox.Left = ball.width / 2;
+                x = -x;
+            }
+
+            if (ball.pictureBox.Left > ball.width)
+            {
+                ball.pictureBox.Left = ball.width / 2;
+                x = -x;
+            }
+
+            if (ball.pictureBox.Top < 0 || ball.pictureBox.Top > ball.height)
+            {
+                y = -y;
+            }
+
         }
     }
 }

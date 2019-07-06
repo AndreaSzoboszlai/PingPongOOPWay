@@ -18,7 +18,7 @@ namespace PingPonOOPWay
         public PingPong()
         {
             InitializeComponent();
-            logic = new PingPongLogic(818, 497);
+            logic = new PingPongLogic(350, 650);
             logic.pictureBoxPaddle1 = PlayerA;
             logic.pictureBoxPaddle2 = PlayerB;
             logic.pictureBoxBall = ball;
@@ -37,8 +37,8 @@ namespace PingPonOOPWay
         }
         private void timerTick(object sender, EventArgs e)
         {
-            logic.UpdateBallPostition(5, 5);
             logic.paddleMove();
+            logic.CollisionHandler();
         }
     }
 }
