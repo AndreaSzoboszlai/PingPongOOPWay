@@ -132,6 +132,17 @@ namespace PingPong
                 y = -y;
             }
 
+            if (ball.pictureBox.Bounds.IntersectsWith(paddle.pictureBox.Bounds))
+            {
+                x = -x;
+            }
+
+            if (ball.pictureBox.Bounds.IntersectsWith(paddle2.pictureBox.Bounds))
+            {
+                x = -x;
+            }
+
+
         }
     }
 }
